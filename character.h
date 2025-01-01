@@ -4,12 +4,6 @@
 #include "sdl.h"
 #include <iostream>
 
-struct Bullet{
-    int x, y;
-    int speed;
-    bool fired=false;
-}
-
 
 class Character{
     public:
