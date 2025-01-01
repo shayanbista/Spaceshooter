@@ -351,6 +351,7 @@ CMakeFiles/SpaceShooterGame.dir/main.cpp.o: ../main.cpp \
   /usr/include/SDL2/SDL_image.h \
   /usr/include/SDL2/SDL.h \
   ../player.h \
+  ../character.h \
   ../sdl.h
 
 CMakeFiles/SpaceShooterGame.dir/map.cpp.o: ../map.cpp \
@@ -1053,6 +1054,7 @@ CMakeFiles/SpaceShooterGame.dir/player.cpp.o: ../player.cpp \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
+  ../character.h \
   ../sdl.h
 
 CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
@@ -1661,6 +1663,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 /usr/include/c++/11/bits/cxxabi_init_exception.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
+
+../character.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 

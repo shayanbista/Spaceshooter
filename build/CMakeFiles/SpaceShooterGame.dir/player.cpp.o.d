@@ -285,4 +285,5 @@ CMakeFiles/SpaceShooterGame.dir/player.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
+ /home/leapfrog/Documents/spaceshootergame/character.h \
  /home/leapfrog/Documents/spaceshootergame/sdl.h
