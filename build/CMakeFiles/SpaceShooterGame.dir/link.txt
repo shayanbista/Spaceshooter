@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/SpaceShooterGame.dir/main.cpp.o CMakeFiles/SpaceShooterGame.dir/map.cpp.o -o SpaceShooterGame  -lSDL2 -lSDL2_image -lSDL2 -lSDL2_image 
