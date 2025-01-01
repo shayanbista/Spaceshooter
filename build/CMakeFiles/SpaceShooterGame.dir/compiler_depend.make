@@ -182,6 +182,7 @@ CMakeFiles/SpaceShooterGame.dir/main.cpp.o: ../main.cpp \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
   ../map.h \
+  ../sdl.h \
   /usr/include/SDL2/SDL.h \
   /usr/include/SDL2/SDL_main.h \
   /usr/include/SDL2/SDL_stdinc.h \
@@ -350,13 +351,14 @@ CMakeFiles/SpaceShooterGame.dir/main.cpp.o: ../main.cpp \
   /usr/include/SDL2/SDL_misc.h \
   /usr/include/SDL2/SDL_image.h \
   /usr/include/SDL2/SDL.h \
+  ../constants.h \
   ../player.h \
-  ../character.h \
-  ../sdl.h
+  ../character.h
 
 CMakeFiles/SpaceShooterGame.dir/map.cpp.o: ../map.cpp \
   /usr/include/stdc-predef.h \
   ../map.h \
+  ../sdl.h \
   /usr/include/SDL2/SDL.h \
   /usr/include/SDL2/SDL_main.h \
   /usr/include/SDL2/SDL_stdinc.h \
@@ -703,11 +705,12 @@ CMakeFiles/SpaceShooterGame.dir/map.cpp.o: ../map.cpp \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
-  ../sdl.h
+  ../constants.h
 
 CMakeFiles/SpaceShooterGame.dir/player.cpp.o: ../player.cpp \
   /usr/include/stdc-predef.h \
   ../player.h \
+  ../sdl.h \
   /usr/include/SDL2/SDL.h \
   /usr/include/SDL2/SDL_main.h \
   /usr/include/SDL2/SDL_stdinc.h \
@@ -1054,8 +1057,7 @@ CMakeFiles/SpaceShooterGame.dir/player.cpp.o: ../player.cpp \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
-  ../character.h \
-  ../sdl.h
+  ../character.h
 
 CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
   /usr/include/stdc-predef.h \
@@ -1312,6 +1314,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
   /usr/include/SDL2/SDL_version.h \
   /usr/include/SDL2/SDL_locale.h \
   /usr/include/SDL2/SDL_misc.h \
+  /usr/include/SDL2/SDL_image.h \
+  /usr/include/SDL2/SDL.h \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -1409,8 +1413,6 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 ../sdl.cpp:
 
 ../map.cpp:
-
-../sdl.h:
 
 ../player.h:
 
@@ -1543,6 +1545,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 /usr/lib/gcc/x86_64-linux-gnu/11/include/wbnoinvdintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/waitpkgintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/tsxldtrkintrin.h:
 
 /usr/include/c++/11/bits/stl_construct.h:
 
@@ -1996,6 +2000,10 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 
 /usr/include/c++/11/bits/istream.tcc:
 
+../constants.h:
+
+../sdl.h:
+
 /usr/include/SDL2/SDL.h:
 
 /usr/include/SDL2/close_code.h:
@@ -2081,8 +2089,6 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 /usr/include/SDL2/SDL_platform.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/cldemoteintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/tsxldtrkintrin.h:
 
 /usr/include/c++/11/string:
 

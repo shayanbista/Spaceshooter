@@ -2,8 +2,9 @@ CMakeFiles/SpaceShooterGame.dir/player.cpp.o: \
  /home/leapfrog/Documents/spaceshootergame/player.cpp \
  /usr/include/stdc-predef.h \
  /home/leapfrog/Documents/spaceshootergame/player.h \
- /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
- /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
+ /home/leapfrog/Documents/spaceshootergame/sdl.h /usr/include/SDL2/SDL.h \
+ /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
+ /usr/include/SDL2/SDL_config.h \
  /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
  /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
  /usr/include/SDL2/close_code.h /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -286,4 +287,4 @@ CMakeFiles/SpaceShooterGame.dir/player.cpp.o: \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
  /home/leapfrog/Documents/spaceshootergame/character.h \
- /home/leapfrog/Documents/spaceshootergame/sdl.h
+ /home/leapfrog/Documents/spaceshootergame/constants.h
