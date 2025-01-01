@@ -1,33 +1,3 @@
-// #ifndef Map.h
-// #define Map.h
-
-// #include <SDL2/SDL.h>
-// #include <SDL2/SDL_image.h>
-// #include <iosteam>
-
-
-// class Map{
-
-//     public:
-//     Map(){
-//         //default constructor
-//     }
-
-//     void loadMap();
-
-//     private:
-//     const int SCREEN_WIDTH = 640;
-//     const int SCREEN_HEIGHT = 480; 
-//     SDL_Texture* mapTexture;  
-//     SDL_Window* window;
-//     SDL_Renderer* renderer;
-//     SDL_Surface* tileSurface    
-
-
-// }
-
-// endif // Map.h
-
 
 #ifndef MAP_H
 #define MAP_H
@@ -38,20 +8,22 @@
 
 class Map {
 public:
-    Map(){
+    Map();
 
+    int loadMap();
 
-    }
-
-    void loadMap();
+    ~Map();
 
 private:
-    const int SCREEN_WIDTH = 640;
-    const int SCREEN_HEIGHT = 480; 
+    const int SCREEN_WIDTH = 500;
+    const int SCREEN_HEIGHT = 500; 
+    int tileWidth = 32;
+    int tileHeight = 32;
     SDL_Texture* mapTexture;  
     SDL_Window* window;
     SDL_Renderer* renderer;
     SDL_Surface* tileSurface;
+    SDL_Texture* tileTexture;
 };
 
 #endif // MAP_H

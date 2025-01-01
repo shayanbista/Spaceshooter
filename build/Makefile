@@ -177,6 +177,54 @@ map.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SpaceShooterGame.dir/build.make CMakeFiles/SpaceShooterGame.dir/map.cpp.s
 .PHONY : map.cpp.s
 
+player.o: player.cpp.o
+.PHONY : player.o
+
+# target to build an object file
+player.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SpaceShooterGame.dir/build.make CMakeFiles/SpaceShooterGame.dir/player.cpp.o
+.PHONY : player.cpp.o
+
+player.i: player.cpp.i
+.PHONY : player.i
+
+# target to preprocess a source file
+player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SpaceShooterGame.dir/build.make CMakeFiles/SpaceShooterGame.dir/player.cpp.i
+.PHONY : player.cpp.i
+
+player.s: player.cpp.s
+.PHONY : player.s
+
+# target to generate assembly for a file
+player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SpaceShooterGame.dir/build.make CMakeFiles/SpaceShooterGame.dir/player.cpp.s
+.PHONY : player.cpp.s
+
+sdl.o: sdl.cpp.o
+.PHONY : sdl.o
+
+# target to build an object file
+sdl.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SpaceShooterGame.dir/build.make CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o
+.PHONY : sdl.cpp.o
+
+sdl.i: sdl.cpp.i
+.PHONY : sdl.i
+
+# target to preprocess a source file
+sdl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SpaceShooterGame.dir/build.make CMakeFiles/SpaceShooterGame.dir/sdl.cpp.i
+.PHONY : sdl.cpp.i
+
+sdl.s: sdl.cpp.s
+.PHONY : sdl.s
+
+# target to generate assembly for a file
+sdl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SpaceShooterGame.dir/build.make CMakeFiles/SpaceShooterGame.dir/sdl.cpp.s
+.PHONY : sdl.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +240,12 @@ help:
 	@echo "... map.o"
 	@echo "... map.i"
 	@echo "... map.s"
+	@echo "... player.o"
+	@echo "... player.i"
+	@echo "... player.s"
+	@echo "... sdl.o"
+	@echo "... sdl.i"
+	@echo "... sdl.s"
 .PHONY : help
 
 
