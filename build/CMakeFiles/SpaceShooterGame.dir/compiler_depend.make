@@ -1057,7 +1057,8 @@ CMakeFiles/SpaceShooterGame.dir/player.cpp.o: ../player.cpp \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
-  ../character.h
+  ../character.h \
+  ../constants.h
 
 CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
   /usr/include/stdc-predef.h \

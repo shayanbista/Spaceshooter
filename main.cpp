@@ -1,14 +1,17 @@
 
 #include <iostream>
+
 #include "map.h"
 #include "player.h"
 #include "sdl.h"
+#include "constants.h"
+
 
 
 int main() {
     // Initialize SDL
     SDL* sdlInstance = SDL::getInstance();
-    if (!sdlInstance->initialize("Space Shooter Game", 500, 500)) {
+    if (!sdlInstance->initialize("Space Shooter Game", Constants::screenWidth , Constants::screenHeight)) {
         std::cout << "SDL Initialization failed!" << std::endl;
         return -1;
     }
@@ -58,7 +61,10 @@ int main() {
                     case SDLK_d:
                         player.move(10, 0);   // Move right (D key)
                         break;
+					case SDLK_l:
+						player.shoot(); //shooting
                 }
+
             }
         }
 
