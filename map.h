@@ -14,9 +14,10 @@ public:
 
     ~Map();
 
+    static const int SCREEN_WIDTH = 500;
+    static const int SCREEN_HEIGHT = 500; 
+
 private:
-    const int SCREEN_WIDTH = 500;
-    const int SCREEN_HEIGHT = 500; 
     int tileWidth = 32;
     int tileHeight = 32;
     SDL_Texture* mapTexture;  

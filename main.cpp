@@ -4,6 +4,7 @@
 #include "player.h"
 #include "sdl.h"
 
+
 int main() {
     // Initialize SDL
     SDL* sdlInstance = SDL::getInstance();
@@ -29,6 +30,36 @@ int main() {
             if (e.type == SDL_QUIT) {
                 quit = true;
             }
+
+            // Player movement handling (using arrow keys or WASD)
+            if (e.type == SDL_KEYDOWN) {
+                switch (e.key.keysym.sym) {
+                    case SDLK_UP:
+                        player.move(0, -10);  // Move up
+                        break;
+                    case SDLK_DOWN:
+                        player.move(0, 10);   // Move down
+                        break;
+                    case SDLK_LEFT:
+                        player.move(-10, 0);  // Move left
+                        break;
+                    case SDLK_RIGHT:
+                        player.move(10, 0);   // Move right
+                        break;
+                    case SDLK_w:
+                        player.move(0, -10);  // Move up (W key)
+                        break;
+                    case SDLK_s:
+                        player.move(0, 10);   // Move down (S key)
+                        break;
+                    case SDLK_a:
+                        player.move(-10, 0);  // Move left (A key)
+                        break;
+                    case SDLK_d:
+                        player.move(10, 0);   // Move right (D key)
+                        break;
+                }
+            }
         }
 
         // Clear the screen with black color
@@ -52,3 +83,4 @@ int main() {
     sdlInstance->cleanup();
     return 0;
 }
+

@@ -21,7 +21,6 @@ int Map::loadMap() {
     SDL* sdlInstance = SDL::getInstance();
     SDL_Renderer* renderer = sdlInstance->getRenderer();
 
-    // Load tile surface and texture (if not already loaded)
     if (!tileTexture) {
         // Try to load the image - use absolute path or correct relative path
         const char* imagePath = "../resources/background3.png";  // Adjust this path

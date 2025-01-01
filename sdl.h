@@ -1,9 +1,3 @@
-    // struct SDL_Packages {
-    //     static SDL_Window* window;
-    //     static SDL_Renderer* renderer;
-    // };
-
-
 #ifndef SDL_H
 #define SDL_H
 

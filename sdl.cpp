@@ -30,7 +30,7 @@ bool SDL::initialize(const char* title, int width, int height) {
         return false;
     }
 
-    // Create renderer
+
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     if (renderer == nullptr) {
         std::cout << "SDL_CreateRenderer Error: " << SDL_GetError() << std::endl;
@@ -56,7 +56,7 @@ SDL_Renderer* SDL::getRenderer() {
 void SDL::cleanup() {
     if (renderer) {
         SDL_DestroyRenderer(renderer);
-        renderer = nullptr;
+        renderer = nullptr; //avoiding dangling pointer
     }
 
     if (window) {

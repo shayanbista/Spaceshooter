@@ -6,17 +6,23 @@
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
-class Player {
+#include "character.h"
+
+class Player : public Character {
 public:
     Player();
-
+    // ~Player();  
+    int move(int x, int y) override;
     int renderPlayer();
+
    
 
 private:
-    int posX=50;
-    int posY=50;
-    int playerSize=32;
+    int posX=250;
+    int posY=400;
+    int playerHeight=32;
+    int playerWidth=32;
+
     SDL_Texture* playerTexture;  
     SDL_Surface* tileSurface;
     SDL_Rect playerRect;
