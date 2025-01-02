@@ -129,6 +129,30 @@ SpaceShooterGame/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SpaceShooterGame.dir/build.make CMakeFiles/SpaceShooterGame.dir/build
 .PHONY : SpaceShooterGame/fast
 
+enemy.o: enemy.cpp.o
+.PHONY : enemy.o
+
+# target to build an object file
+enemy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SpaceShooterGame.dir/build.make CMakeFiles/SpaceShooterGame.dir/enemy.cpp.o
+.PHONY : enemy.cpp.o
+
+enemy.i: enemy.cpp.i
+.PHONY : enemy.i
+
+# target to preprocess a source file
+enemy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SpaceShooterGame.dir/build.make CMakeFiles/SpaceShooterGame.dir/enemy.cpp.i
+.PHONY : enemy.cpp.i
+
+enemy.s: enemy.cpp.s
+.PHONY : enemy.s
+
+# target to generate assembly for a file
+enemy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SpaceShooterGame.dir/build.make CMakeFiles/SpaceShooterGame.dir/enemy.cpp.s
+.PHONY : enemy.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -234,6 +258,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SpaceShooterGame"
+	@echo "... enemy.o"
+	@echo "... enemy.i"
+	@echo "... enemy.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

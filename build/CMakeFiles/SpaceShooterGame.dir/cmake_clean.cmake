@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/SpaceShooterGame.dir/enemy.cpp.o"
+  "CMakeFiles/SpaceShooterGame.dir/enemy.cpp.o.d"
   "CMakeFiles/SpaceShooterGame.dir/main.cpp.o"
   "CMakeFiles/SpaceShooterGame.dir/main.cpp.o.d"
   "CMakeFiles/SpaceShooterGame.dir/map.cpp.o"
