@@ -81,7 +81,6 @@ int main() {
         // Present the renderer
         SDL_RenderPresent(renderer);
 
-        // Add a small delay to prevent the CPU from maxing out
         SDL_Delay(16);  // ~60 FPS
     }
 

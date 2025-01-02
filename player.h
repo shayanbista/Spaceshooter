@@ -5,7 +5,10 @@
 #include "sdl.h"
 #include "character.h"
 #include "constants.h"
+#include "utilies.h"
 
+#include <algorithm>
+#include <vector>
 #include <iostream>
 
 class Player : public Character {
@@ -15,8 +18,10 @@ public:
     int move(int x, int y) override;
     int shoot() override;
     int renderPlayer();
+    std::vector<Bullet> shooting{};
+    void updateBullets();
 
-   
+
 
 private:
     int posX=250;

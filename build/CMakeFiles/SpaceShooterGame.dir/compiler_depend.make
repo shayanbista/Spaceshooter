@@ -353,7 +353,38 @@ CMakeFiles/SpaceShooterGame.dir/main.cpp.o: ../main.cpp \
   /usr/include/SDL2/SDL.h \
   ../constants.h \
   ../player.h \
-  ../character.h
+  ../character.h \
+  ../utilies.h \
+  /usr/include/c++/11/algorithm \
+  /usr/include/c++/11/utility \
+  /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/bits/stl_algo.h \
+  /usr/include/c++/11/bits/algorithmfwd.h \
+  /usr/include/c++/11/bits/stl_heap.h \
+  /usr/include/c++/11/bits/stl_tempbuf.h \
+  /usr/include/c++/11/bits/uniform_int_dist.h \
+  /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/11/functional \
+  /usr/include/c++/11/tuple \
+  /usr/include/c++/11/array \
+  /usr/include/c++/11/bits/uses_allocator.h \
+  /usr/include/c++/11/bits/invoke.h \
+  /usr/include/c++/11/bits/refwrap.h \
+  /usr/include/c++/11/bits/std_function.h \
+  /usr/include/c++/11/unordered_map \
+  /usr/include/c++/11/ext/aligned_buffer.h \
+  /usr/include/c++/11/bits/hashtable.h \
+  /usr/include/c++/11/bits/hashtable_policy.h \
+  /usr/include/c++/11/bits/enable_special_members.h \
+  /usr/include/c++/11/bits/node_handle.h \
+  /usr/include/c++/11/bits/unordered_map.h \
+  /usr/include/c++/11/bits/erase_if.h \
+  /usr/include/c++/11/vector \
+  /usr/include/c++/11/bits/stl_uninitialized.h \
+  /usr/include/c++/11/bits/stl_vector.h \
+  /usr/include/c++/11/bits/stl_bvector.h \
+  /usr/include/c++/11/bits/vector.tcc \
+  /usr/include/c++/11/pstl/execution_defs.h
 
 CMakeFiles/SpaceShooterGame.dir/map.cpp.o: ../map.cpp \
   /usr/include/stdc-predef.h \
@@ -1058,7 +1089,38 @@ CMakeFiles/SpaceShooterGame.dir/player.cpp.o: ../player.cpp \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
   ../character.h \
-  ../constants.h
+  ../constants.h \
+  ../utilies.h \
+  /usr/include/c++/11/algorithm \
+  /usr/include/c++/11/utility \
+  /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/bits/stl_algo.h \
+  /usr/include/c++/11/bits/algorithmfwd.h \
+  /usr/include/c++/11/bits/stl_heap.h \
+  /usr/include/c++/11/bits/stl_tempbuf.h \
+  /usr/include/c++/11/bits/uniform_int_dist.h \
+  /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/11/functional \
+  /usr/include/c++/11/tuple \
+  /usr/include/c++/11/array \
+  /usr/include/c++/11/bits/uses_allocator.h \
+  /usr/include/c++/11/bits/invoke.h \
+  /usr/include/c++/11/bits/refwrap.h \
+  /usr/include/c++/11/bits/std_function.h \
+  /usr/include/c++/11/unordered_map \
+  /usr/include/c++/11/ext/aligned_buffer.h \
+  /usr/include/c++/11/bits/hashtable.h \
+  /usr/include/c++/11/bits/hashtable_policy.h \
+  /usr/include/c++/11/bits/enable_special_members.h \
+  /usr/include/c++/11/bits/node_handle.h \
+  /usr/include/c++/11/bits/unordered_map.h \
+  /usr/include/c++/11/bits/erase_if.h \
+  /usr/include/c++/11/vector \
+  /usr/include/c++/11/bits/stl_uninitialized.h \
+  /usr/include/c++/11/bits/stl_vector.h \
+  /usr/include/c++/11/bits/stl_bvector.h \
+  /usr/include/c++/11/bits/vector.tcc \
+  /usr/include/c++/11/pstl/execution_defs.h
 
 CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
   /usr/include/stdc-predef.h \
@@ -1415,6 +1477,30 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 
 ../map.cpp:
 
+/usr/include/c++/11/bits/stl_uninitialized.h:
+
+/usr/include/c++/11/vector:
+
+/usr/include/c++/11/bits/hashtable_policy.h:
+
+/usr/include/c++/11/unordered_map:
+
+/usr/include/c++/11/bits/refwrap.h:
+
+/usr/include/c++/11/bits/uses_allocator.h:
+
+/usr/include/c++/11/tuple:
+
+/usr/include/c++/11/bits/std_function.h:
+
+/usr/include/c++/11/bits/stl_tempbuf.h:
+
+/usr/include/c++/11/bits/stl_algo.h:
+
+/usr/include/c++/11/bits/stl_relops.h:
+
+/usr/include/c++/11/algorithm:
+
 ../player.h:
 
 /usr/include/SDL2/SDL_image.h:
@@ -1426,6 +1512,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 /usr/include/SDL2/SDL_metal.h:
 
 /usr/include/SDL2/SDL_messagebox.h:
+
+/usr/include/c++/11/bits/stl_vector.h:
 
 /usr/include/SDL2/SDL_hidapi.h:
 
@@ -1443,7 +1531,11 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 
 /usr/include/SDL2/SDL_joystick.h:
 
+/usr/include/c++/11/bits/hashtable.h:
+
 /usr/include/SDL2/SDL_scancode.h:
+
+/usr/include/c++/11/bits/invoke.h:
 
 /usr/include/SDL2/SDL_keycode.h:
 
@@ -1519,6 +1611,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/wmmintrin.h:
 
+/usr/include/c++/11/bits/unordered_map.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/tmmintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/pmmintrin.h:
@@ -1531,7 +1625,13 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/hresetintrin.h:
 
+/usr/include/c++/11/pstl/execution_defs.h:
+
+/usr/include/c++/11/bits/algorithmfwd.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/xsavesintrin.h:
+
+/usr/include/c++/11/bits/vector.tcc:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/xsaveoptintrin.h:
 
@@ -1582,6 +1682,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 /usr/include/SDL2/SDL_gamecontroller.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+
+/usr/include/c++/11/bits/stl_bvector.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
@@ -1693,6 +1795,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/bmiintrin.h:
 
+/usr/include/c++/11/functional:
+
 /usr/include/linux/errno.h:
 
 /usr/include/c++/11/debug/debug.h:
@@ -1756,6 +1860,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 /usr/include/c++/11/tr1/gamma.tcc:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+../utilies.h:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
@@ -1887,9 +1993,13 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/fxsrintrin.h:
 
+/usr/include/c++/11/ext/aligned_buffer.h:
+
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/clflushoptintrin.h:
+
+/usr/include/c++/11/bits/erase_if.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx2intrin.h:
 
@@ -1910,6 +2020,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512ifmavlintrin.h:
 
 /usr/include/alloca.h:
+
+/usr/include/c++/11/bits/stl_heap.h:
 
 /usr/include/c++/11/bits/std_abs.h:
 
@@ -1951,6 +2063,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 
 /usr/include/c++/11/bits/locale_classes.tcc:
 
+/usr/include/c++/11/bits/node_handle.h:
+
 /usr/include/c++/11/iostream:
 
 /usr/include/x86_64-linux-gnu/bits/fp-fast.h:
@@ -1961,13 +2075,19 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 
 /usr/include/c++/11/system_error:
 
+/usr/include/c++/11/utility:
+
 /usr/include/c++/11/ios:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
 
+/usr/include/c++/11/pstl/glue_algorithm_defs.h:
+
 /usr/include/c++/11/stdexcept:
 
 /usr/include/c++/11/tr1/bessel_function.tcc:
+
+/usr/include/c++/11/bits/uniform_int_dist.h:
 
 /usr/include/c++/11/bits/basic_ios.h:
 
@@ -1990,6 +2110,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
 /usr/include/c++/11/bits/locale_facets.tcc:
+
+/usr/include/c++/11/bits/enable_special_members.h:
 
 /usr/include/SDL2/SDL_events.h:
 
@@ -2052,6 +2174,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 /usr/include/c++/11/bits/specfun.h:
 
 /usr/include/c++/11/limits:
+
+/usr/include/c++/11/array:
 
 /usr/include/c++/11/tr1/beta_function.tcc:
 

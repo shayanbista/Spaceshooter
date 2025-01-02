@@ -35,10 +35,8 @@ int Player::renderPlayer() {
             std::cout << "Failed to create texture! SDL Error: " << SDL_GetError() << std::endl;
             return 1;
         }
-
     }
 
-    SDL_Rect destRect = {100, 100, 50, 50};
     SDL_RenderCopy(renderer, playerTexture, nullptr, &playerRect);
 
     return 0;
@@ -69,22 +67,27 @@ int Player::move(int x,int y){
     return 0;
 }
 int Player::shoot(){
-    SDL* sdlInstance = SDL::getInstance();
-    SDL_Renderer* renderer = sdlInstance->getRenderer();
-    int firingPositionX=posX;
-    int firingPositionY=posY+playerHeight;
-    
-
-    std::cout<<"firing position: "<< firingPositionX<<"\n";
-    std::cout<<"firing position y: "<< firingPositionY<<"\n";
-    SDL_Rect rect = {firingPositionX, firingPositionY, 20, 20};
-
-    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); 
-    SDL_RenderFillRect(renderer, &rect);
-
-
+    shooting.emplace_back(posX,posY+playerHeight,true);
+    std::cout<<"shooting length"<<shooting.size()<<"\n";
     return 0;
 }
+
+
+
+void Player::updateBullets(){
+
+    std::cout<<"updating the value"<<"\n";
+    for (auto& bullet :shooting){
+        if(bullet.fired){
+            bullet.y-=10;
+        }
+    }
+
+    shooting.erase(std::remove_if(shooting.begin(),shooting.end(),[](const Bullet& bullet){
+        return bullet.y < 0 || bullet.fired;
+    }),shooting.end());
+
+    }
 
 
 Player::~Player(){
@@ -94,3 +97,5 @@ Player::~Player(){
     }
     IMG_Quit();
 }
+
+
