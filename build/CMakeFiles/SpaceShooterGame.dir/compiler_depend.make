@@ -547,6 +547,22 @@ CMakeFiles/SpaceShooterGame.dir/main.cpp.o: ../main.cpp \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/std_thread.h \
+  /usr/include/c++/11/tuple \
+  /usr/include/c++/11/utility \
+  /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/array \
+  /usr/include/c++/11/bits/uses_allocator.h \
+  /usr/include/c++/11/bits/invoke.h \
+  /usr/include/c++/11/bits/refwrap.h \
+  /usr/include/c++/11/bits/unique_ptr.h \
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/bits/parse_numbers.h \
   ../map.h \
   ../sdl.h \
   /usr/include/SDL2/SDL.h \
@@ -574,7 +590,6 @@ CMakeFiles/SpaceShooterGame.dir/main.cpp.o: ../main.cpp \
   /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/c++/11/bits/specfun.h \
-  /usr/include/c++/11/limits \
   /usr/include/c++/11/tr1/gamma.tcc \
   /usr/include/c++/11/tr1/special_function_util.h \
   /usr/include/c++/11/tr1/bessel_function.tcc \
@@ -718,16 +733,6 @@ CMakeFiles/SpaceShooterGame.dir/main.cpp.o: ../main.cpp \
   /usr/include/SDL2/SDL_image.h \
   /usr/include/SDL2/SDL.h \
   /usr/include/c++/11/mutex \
-  /usr/include/c++/11/tuple \
-  /usr/include/c++/11/utility \
-  /usr/include/c++/11/bits/stl_relops.h \
-  /usr/include/c++/11/array \
-  /usr/include/c++/11/bits/uses_allocator.h \
-  /usr/include/c++/11/bits/invoke.h \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/ctime \
-  /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/bits/std_mutex.h \
   /usr/include/c++/11/bits/unique_lock.h \
   ../constants.h \
@@ -742,7 +747,6 @@ CMakeFiles/SpaceShooterGame.dir/main.cpp.o: ../main.cpp \
   /usr/include/c++/11/bits/uniform_int_dist.h \
   /usr/include/c++/11/pstl/glue_algorithm_defs.h \
   /usr/include/c++/11/functional \
-  /usr/include/c++/11/bits/refwrap.h \
   /usr/include/c++/11/bits/std_function.h \
   /usr/include/c++/11/unordered_map \
   /usr/include/c++/11/ext/aligned_buffer.h \
@@ -1892,8 +1896,6 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 
 /usr/include/c++/11/unordered_map:
 
-/usr/include/c++/11/bits/refwrap.h:
-
 /usr/include/c++/11/bits/std_function.h:
 
 /usr/include/c++/11/bits/stl_tempbuf.h:
@@ -1904,9 +1906,15 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 
 ../player.h:
 
+/usr/include/c++/11/bits/unique_ptr.h:
+
+/usr/include/c++/11/bits/refwrap.h:
+
 ../main.cpp:
 
 /usr/include/c++/11/ctime:
+
+/usr/include/c++/11/thread:
 
 /usr/include/c++/11/ratio:
 
@@ -1985,6 +1993,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 ../character.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
+
+/usr/include/c++/11/bits/this_thread_sleep.h:
 
 /usr/include/c++/11/bits/locale_facets.tcc:
 
@@ -2407,6 +2417,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
 /usr/include/stdio.h:
+
+/usr/include/c++/11/bits/std_thread.h:
 
 /usr/include/c++/11/bits/stl_iterator_base_funcs.h:
 
