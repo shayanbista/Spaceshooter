@@ -37,28 +37,42 @@ int Player::renderPlayer() {
         }
     }
 
-    SDL_RenderCopy(renderer, playerTexture, nullptr, &playerRect);
+    // SDL_RenderCopy(renderer, playerTexture, nullptr, &playerRect);
+    SDL_RenderCopyEx(
+        renderer,
+        playerTexture,
+        nullptr,
+        &playerRect,
+        degree,         
+        nullptr,       
+        SDL_FLIP_NONE   
+    );
 
     return 0;
 }
 
 
-int Player::move(int x,int y){
-    posX += x;
-    posY += y;
 
-    // checking x dimensions
-     if (posX < 0) { 
+
+int Player::move(int x) {
+    int previousPosX = posX;
+
+    posX += x;
+
+    if (posX < 0) {
         posX = 0;
-    } else if (posX+playerWidth >Constants::screenWidth) { 
-        posX = Constants::screenWidth- playerWidth;
+        degree = 0;
+    } else if (posX + playerWidth > Constants::screenWidth) {
+        posX = Constants::screenWidth - playerWidth;
+        degree = 0;
     }
 
-    // checking y dimensions
-    if (posY < 0) { 
-        posY = 0;
-    } else if (posY + playerHeight > Constants::screenWidth) {
-        posY = Constants::screenWidth - playerHeight;
+    if (previousPosX > posX) {
+        degree -= 10; 
+        if(degree < -50)  degree = -50;
+    } else if (previousPosX < posX) {
+        degree += 10; 
+        if (degree > 50) degree =50;
     }
 
     playerRect.x = posX;
@@ -66,6 +80,10 @@ int Player::move(int x,int y){
 
     return 0;
 }
+
+ 
+
+
 int Player::shoot(){
     shooting.emplace_back(posX,posY+playerHeight,true);
     std::cout<<"shooting length"<<shooting.size()<<"\n";
@@ -76,17 +94,17 @@ int Player::shoot(){
 
 void Player::updateBullets(){
 
-    std::cout<<"updating the value"<<"\n";
     for (auto& bullet :shooting){
         if(bullet.fired){
-            bullet.y-=10;
+            bullet.y-=4;
+            std::cout<<"bullet fired"<<bullet.y<<"\n";
         }
+        shooting.erase(std::remove_if(shooting.begin(),shooting.end(),[&](Bullet& Bullet){ 
+            return bullet.y < 0 || bullet.fired;
+        }),shooting.end());
     }
 
-    shooting.erase(std::remove_if(shooting.begin(),shooting.end(),[](const Bullet& bullet){
-        return bullet.y < 0 || bullet.fired;
-    }),shooting.end());
-
+    std::cout<<"shooting size"<<shooting.size()<<"\n";
     }
 
 

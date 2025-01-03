@@ -4,12 +4,15 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>
+#include <mutex>
 
 class SDL {
 private:
     static SDL* instance;  
+    static std::mutex mutex;
     SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
+
 
     SDL();
 

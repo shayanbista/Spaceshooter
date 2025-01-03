@@ -7,8 +7,9 @@
 
 class Character{
     public:
+        int health=5;
     Character()=default;
-    virtual int move(int x, int y)=0;
+
     virtual int shoot() {
         return 0;
     }

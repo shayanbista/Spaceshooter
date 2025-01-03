@@ -1,12 +1,25 @@
 
 #include <iostream>
+#include <thread>
 
 #include "map.h"
 #include "player.h"
 #include "sdl.h"
 #include "constants.h"
+#include "enemy.h"
+#include <mutex>
 
 
+std::mutex enemyMutex;
+
+void enemyMovementThread(Enemy* enemy, int speed) {
+    while (true) {
+        {
+            enemy->move(speed);
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(30));  
+    }
+}
 
 int main() {
     // Initialize SDL
@@ -19,9 +32,21 @@ int main() {
     // Create map and player instances
     Map map;
     Player player;
+    Enemy enemy(MovementType::HORIZONTAL,10,30);
+    Enemy enemy2(MovementType::HORIZONTAL,30,80);
+    Enemy enemy1(MovementType::VERTICAL,10,50);
 
+
+ 
     // Get the renderer from SDL Singleton
     SDL_Renderer* renderer = sdlInstance->getRenderer();
+
+
+    // applying threading to move the enemy
+    std::thread enemyThread1(enemyMovementThread, &enemy, 2);
+    std::thread enemyThread2(enemyMovementThread, &enemy1, 1);
+    std::thread enemyThread3(enemyMovementThread, &enemy2, 3);
+
 
     // Main game loop
     bool quit = false;
@@ -38,28 +63,16 @@ int main() {
             if (e.type == SDL_KEYDOWN) {
                 switch (e.key.keysym.sym) {
                     case SDLK_UP:
-                        player.move(0, -10);  // Move up
+                        std::cout<<"Top button is called"<<"\n";
                         break;
                     case SDLK_DOWN:
-                        player.move(0, 10);   // Move down
+                        std::cout<<"Top button is called"<<"\n";
                         break;
                     case SDLK_LEFT:
-                        player.move(-10, 0);  // Move left
+                        player.move(-10);  // Move left
                         break;
                     case SDLK_RIGHT:
-                        player.move(10, 0);   // Move right
-                        break;
-                    case SDLK_w:
-                        player.move(0, -10);  // Move up (W key)
-                        break;
-                    case SDLK_s:
-                        player.move(0, 10);   // Move down (S key)
-                        break;
-                    case SDLK_a:
-                        player.move(-10, 0);  // Move left (A key)
-                        break;
-                    case SDLK_d:
-                        player.move(10, 0);   // Move right (D key)
+                        player.move(10);   // Move right
                         break;
 					case SDLK_l:
 						player.shoot(); //shooting
@@ -68,7 +81,7 @@ int main() {
             }
         }
 
-        // Clear the screen with black color
+        // Clear the screen with black colorbut i dont get it how the move 
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
 
@@ -78,12 +91,23 @@ int main() {
         // Render the player 
         player.renderPlayer();
 
+        player.updateBullets();
+        
+        enemy.renderEnemy();
+        enemy1.renderEnemy();
+        enemy2.renderEnemy();
+        
         // Present the renderer
         SDL_RenderPresent(renderer);
 
         SDL_Delay(16);  // ~60 FPS
     }
 
+
+    enemyThread1.detach();  
+    enemyThread2.detach();
+    enemyThread3.detach();
+    
     // Cleanup and quit
     sdlInstance->cleanup();
     return 0;
