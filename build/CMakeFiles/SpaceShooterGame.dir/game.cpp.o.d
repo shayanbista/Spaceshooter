@@ -1,5 +1,5 @@
-CMakeFiles/SpaceShooterGame.dir/main.cpp.o: \
- /home/leapfrog/Documents/spaceshootergame/main.cpp \
+CMakeFiles/SpaceShooterGame.dir/game.cpp.o: \
+ /home/leapfrog/Documents/spaceshootergame/game.cpp \
  /usr/include/stdc-predef.h \
  /home/leapfrog/Documents/spaceshootergame/game.h /usr/include/SDL2/SDL.h \
  /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \

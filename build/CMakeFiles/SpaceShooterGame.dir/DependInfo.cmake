@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/leapfrog/Documents/spaceshootergame/enemy.cpp" "CMakeFiles/SpaceShooterGame.dir/enemy.cpp.o" "gcc" "CMakeFiles/SpaceShooterGame.dir/enemy.cpp.o.d"
+  "/home/leapfrog/Documents/spaceshootergame/game.cpp" "CMakeFiles/SpaceShooterGame.dir/game.cpp.o" "gcc" "CMakeFiles/SpaceShooterGame.dir/game.cpp.o.d"
   "/home/leapfrog/Documents/spaceshootergame/main.cpp" "CMakeFiles/SpaceShooterGame.dir/main.cpp.o" "gcc" "CMakeFiles/SpaceShooterGame.dir/main.cpp.o.d"
   "/home/leapfrog/Documents/spaceshootergame/map.cpp" "CMakeFiles/SpaceShooterGame.dir/map.cpp.o" "gcc" "CMakeFiles/SpaceShooterGame.dir/map.cpp.o.d"
   "/home/leapfrog/Documents/spaceshootergame/player.cpp" "CMakeFiles/SpaceShooterGame.dir/player.cpp.o" "gcc" "CMakeFiles/SpaceShooterGame.dir/player.cpp.o.d"
