@@ -1,11 +1,15 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <SDL.h>
+// #include <SDL.h>
 #include <thread>
 #include <mutex>
 #include <vector>
+#include <list>
+#include <SDL_ttf.h>
 
+
+#include "sdl.h"
 #include "map.h"
 #include "player.h"
 #include "enemy.h"
@@ -25,8 +29,6 @@ private:
     void update();
     void render();
 
-    static void enemyMovementThread(Enemy* enemy, int speed);
-
     SDL* sdlInstance;
     SDL_Renderer* renderer;
     bool quit;
@@ -34,7 +36,8 @@ private:
     Map map;
     Player player;
     std::vector<std::thread> enemyThreads;
-    std::vector<Enemy> enemies;
+    std::list<Enemy> enemies;
+    std::vector<int> bulletsToRemove;
     std::mutex enemyMutex;
 };
 

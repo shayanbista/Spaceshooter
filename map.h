@@ -12,8 +12,6 @@ public:
     ~Map();
     int loadMap();
 
-
-
 private:
     SDL_Texture* mapTexture;  
     SDL_Window* window;

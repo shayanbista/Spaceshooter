@@ -1,12 +1,14 @@
 #include "enemy.h"
 #include "constants.h"
 
-Enemy::Enemy(MovementType type ,int x,int y){
+
+Enemy::Enemy(MovementType type ,int x,int y,int moveSpeed){
     posX = x;
     posY =y;
     movementType = type;
     enemySurface = nullptr;
     enemyTexture = nullptr;
+    speed=moveSpeed;
 
     degree = 90;
 
@@ -23,11 +25,45 @@ Enemy::Enemy(MovementType type ,int x,int y){
 };
 
 
+void Enemy::renderBullets() {
+    SDL* sdlInstance = SDL::getInstance();
+    SDL_Renderer* renderer = sdlInstance->getRenderer();
+    for (auto& bullet : bullets) {
+        bullet.y += 3;
+        SDL_Rect bulletRect = {static_cast<int>(bullet.x), static_cast<int>(bullet.y), 10, 5};
+        SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
+        SDL_RenderFillRect(renderer, &bulletRect);
+    }
+    bullets.erase(std::remove_if(bullets.begin(),bullets.end(),[](const Bullet& bullet){ return bullet.y >=Constants::screenHeight; }),bullets.end());
+}
+
+
+void Enemy::shoot() {
+    auto currentTime = std::chrono::steady_clock::now();
+    std::chrono::duration<double> elapsedTime = currentTime - lastShotTime;
+
+    if (elapsedTime.count() >= 2.0) {
+        float firingDegree = 90-degree;
+        bullets.emplace_back(posX, (posY - enemyHeight/3), true, firingDegree); 
+        lastShotTime = currentTime;
+    }
+}
+
+
+
+std::chrono::steady_clock::time_point Enemy::getLastShotTime() const {
+    return lastShotTime;
+}
+
+void Enemy::setLastShotTime(std::chrono::steady_clock::time_point time) {
+    lastShotTime = time;
+}
+
+
 int Enemy::renderEnemy() {
     SDL* sdlInstance = SDL::getInstance();
     SDL_Renderer* renderer = sdlInstance->getRenderer();
 
-    // Load texture only once
     if (!enemyTexture) {
         const char* imagePath = "../resources/spaceShip/ships/Gray2.png"; 
         enemySurface = IMG_Load(imagePath);
@@ -58,48 +94,14 @@ int Enemy::renderEnemy() {
         degree,         
         nullptr,       
         SDL_FLIP_NONE   
-    );;
+    );
 
     return 0;
 }
 
-
-int Enemy::moveHorizontally(int speed) {
-    posX += speed * direction;
-    
-    if (posX <= 0) {
-        posX = 0;
-        direction = 1;  
-    } 
-    else if (posX >= Constants::screenWidth - enemyWidth) {
-        posX = Constants::screenWidth - enemyWidth;
-        direction = -1;  
-    }
-    
-    return 0;
-}
-
-int Enemy::moveVertically(int speed){
-   
-    posY +=speed * direction;
-
-    if(posY <=0){
-        posY=0;
-        direction = 1;
-    }
-
-    else if(posY >=(Constants::screenHeight)/2){
-        posY=(Constants::screenHeight)/2;
-        direction = -1;
-
-    }
-    return 0;
-};
-
-void Enemy::slideEnemy(int speed){
+void Enemy::slideEnemy(){
 
     if(movementType == MovementType::HORIZONTAL){
-        std::cout <<"speed before applying horizontally" << speed << std::endl;
         posX += speed * direction;
         if(posX>=Constants::screenWidth-enemyWidth){
         posX = Constants::screenWidth - enemyWidth;
@@ -109,8 +111,8 @@ void Enemy::slideEnemy(int speed){
         posX = 0;
         direction = 1;  
         }
+
     }else if(movementType == MovementType::VERTICAL){
-        std::cout <<"speed before applying " << speed << std::endl;
         posY += speed * direction;
         if(posY <=0){
             posY=0;

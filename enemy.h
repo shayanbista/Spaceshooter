@@ -1,5 +1,12 @@
 #include "sdl.h"
 #include "character.h"
+#include "utils.h"
+
+#include <thread>
+#include <vector>
+#include <chrono>
+#include  <algorithm>
+
 
 enum class MovementType {
     HORIZONTAL,
@@ -8,18 +15,20 @@ enum class MovementType {
 
 class Enemy:public Character{
     public:
-        Enemy(MovementType type,int x,int y);
+        Enemy(MovementType type,int x,int y, int moveSpeed);
         ~Enemy();
-
         int renderEnemy();
+        void slideEnemy();
+        void renderBullets();
 
-        void slideEnemy(int speed);
-        
-        // int move(int speed);        
-        int moveVertically(int speed);
-        int moveHorizontally(int speed);
+        void shoot() override;
+
 
         SDL_Rect getRect() { return enemyRect; };
+
+        std::chrono::steady_clock::time_point getLastShotTime() const;
+        void setLastShotTime(std::chrono::steady_clock::time_point time);
+  
 
     private:
         MovementType movementType;
@@ -29,11 +38,12 @@ class Enemy:public Character{
         int enemyWidth=32;
         int degree;
         int direction = 1;
-
+        int speed =1;
         SDL_Texture* enemyTexture;  
         SDL_Surface* enemySurface;
         SDL_Rect enemyRect;
-        // std::mutex enemyMutex;
+        std::vector<Bullet> bullets{};
+        std::chrono::steady_clock::time_point lastShotTime;
 
 };
 

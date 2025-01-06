@@ -16,10 +16,10 @@ public:
     Player();
     ~Player();  
     int move(int x);
-    int shoot() override;
+    void shoot() override;
     int renderPlayer();
-    std::vector<Bullet> shooting{};
-    void updateBullets();
+  
+    void renderBullets();
     SDL_Rect getRect() { return playerRect; }
     SDL_Rect getBulletRect() { return bulletRect; }
 
@@ -29,6 +29,7 @@ private:
     int playerHeight=32;
     int playerWidth=32;
     int degree=0;
+    std::vector<Bullet> shooting{};
     
     SDL_Texture* playerTexture;  
     SDL_Surface* playerSurface;

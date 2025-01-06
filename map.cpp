@@ -39,7 +39,6 @@ int Map::loadMap() {
         }
     }
 
-
     // Create a destination rectangle for the entire screen
     SDL_Rect destRect = {0, 0, Constants::screenWidth,Constants::screenHeight} ;
     

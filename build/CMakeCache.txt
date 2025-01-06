@@ -249,6 +249,9 @@ SDL2_IMAGE_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libSDL2_image.so
 //The directory containing a CMake configuration file for SDL2_image.
 SDL2_image_DIR:PATH=SDL2_image_DIR-NOTFOUND
 
+//The directory containing a CMake configuration file for SDL2_ttf.
+SDL2_ttf_DIR:PATH=SDL2_ttf_DIR-NOTFOUND
+
 //Value Computed by CMake
 SPACESHOOTERGAME_BINARY_DIR:STATIC=/home/leapfrog/Documents/spaceshootergame/build
 

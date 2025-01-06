@@ -31,7 +31,6 @@ int Player::renderPlayer() {
         playerSurface = nullptr;  // Avoiding dangling pointer 
 
         if (!playerTexture) {
-            std::cout<<"error from here"<<"\n";
             std::cout << "Failed to create texture! SDL Error: " << SDL_GetError() << std::endl;
             return 1;
         }
@@ -49,8 +48,6 @@ int Player::renderPlayer() {
 
     return 0;
 }
-
-
 
 
 int Player::move(int x) {
@@ -82,14 +79,13 @@ int Player::move(int x) {
 
  
 
-int Player::shoot() {
+void Player::shoot() {
     float firingDegree = 90-degree;
     shooting.emplace_back(posX, posY + playerHeight, true, firingDegree); 
-    return 0;
 }
 
 
-void Player::updateBullets() {
+void Player::renderBullets() {
     SDL* sdlInstance = SDL::getInstance();
     SDL_Renderer* renderer = sdlInstance->getRenderer();
 
@@ -109,7 +105,7 @@ void Player::updateBullets() {
                     bullet.firingDegree = 60+ rand() % 91; 
                 }
                 bullet.x = std::clamp(bullet.x, 0.0f, static_cast<float>(Constants::screenWidth - 1));
-    }
+        }
             // Render the bullet
             SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
             SDL_RenderFillRect(renderer, &bulletRect);

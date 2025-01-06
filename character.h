@@ -10,13 +10,7 @@ class Character{
         int health=5;
     Character()=default;
 
-    virtual int shoot() {
-
-
-
-
-        return 0;
-    }
+    virtual void shoot() { }
 
 
 };

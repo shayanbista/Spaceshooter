@@ -3,7 +3,6 @@
 #include <chrono>
 #include <thread>
 
-
 Game::Game() : quit(false), sdlInstance(nullptr), renderer(nullptr) {}
 
 Game::~Game() {
@@ -13,24 +12,17 @@ Game::~Game() {
 bool Game::initialize() {
     sdlInstance = SDL::getInstance();
     if (!sdlInstance->initialize("Space Shooter Game", Constants::screenWidth, Constants::screenHeight)) {
-        std::cout << "SDL Initialization failed!" <<"\n";
+        std::cout << "SDL Initialization failed!" << "\n";
+        return false;
     }
 
     renderer = sdlInstance->getRenderer();
 
     // Initialize enemies
-    enemies.emplace_back(MovementType::HORIZONTAL, 10, 30);
-    enemies.emplace_back(MovementType::HORIZONTAL, 30, 80);
-    enemies.emplace_back(MovementType::HORIZONTAL, 40, 40);
-    enemies.emplace_back(MovementType::VERTICAL, 5, 50);
-
-    
-    // Start enemy movement threads
-    int speed=1;
-    for (size_t i = 0; i < enemies.size(); ++i) {
-        speed++; 
-        enemyThreads.emplace_back(enemyMovementThread, &enemies[i], speed);
-    }
+    enemies.emplace_back(MovementType::HORIZONTAL, 10, 30,1);
+    enemies.emplace_back(MovementType::HORIZONTAL, 30, 80,2);
+    enemies.emplace_back(MovementType::HORIZONTAL, 70, 20,3);
+    // enemies.emplace_back(MovementType::VERTICAL, 3, 50,2);
 
     return true;
 }
@@ -45,11 +37,6 @@ void Game::run() {
 }
 
 void Game::cleanup() {
-    for (auto& thread : enemyThreads) {
-        if (thread.joinable()) {
-            thread.detach();
-        }
-    }
     sdlInstance->cleanup();
 }
 
@@ -78,32 +65,30 @@ void Game::handleEvents() {
     }
 }
 
-void Game::update() {
-    player.updateBullets();
-    
-    std::vector<Enemy*> toRemove;
-    for (Enemy& enemy : enemies) {
-        if (checkCollision(player.getBulletRect(), enemy.getRect())) {
-            toRemove.emplace_back(&enemy);
 
+
+
+void Game::update() {
+    for (Enemy& enemy : enemies) {
+        enemy.slideEnemy();  
+        enemy.shoot();       
+    }
+
+    // Check for collisions between player bullets and enemies
+    for (auto it = enemies.begin(); it != enemies.end(); ) {
+        if (checkCollision(player.getBulletRect(), it->getRect())) {
+            it = enemies.erase(it);  
+        } else {
+            ++it;  
         }
     }
-    
-    // Remove marked enemies
-    enemies.erase(
-        std::remove_if(enemies.begin(), enemies.end(),
-            [&](const Enemy& e) {
-                return std::find(toRemove.begin(), toRemove.end(), &e) != toRemove.end();
-            }),
-        enemies.end()
-    );
-
-
 }
 
 
 void Game::render() {
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);//setting color to black
+ 
+
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); 
     SDL_RenderClear(renderer);
 
     map.loadMap();
@@ -111,15 +96,11 @@ void Game::render() {
 
     for (auto& enemy : enemies) {
         enemy.renderEnemy();
+        // renders the bullets shot by enemy
+        enemy.renderBullets(); 
     }
-    player.updateBullets();
+    // renders the bullet shot by player
+    player.renderBullets();
 
     SDL_RenderPresent(renderer);
-}
-
-void Game::enemyMovementThread(Enemy* enemy, int speed) {
-    while (true) {
-        enemy->slideEnemy(speed);
-        std::this_thread::sleep_for(std::chrono::milliseconds(30));
-    }
 }
