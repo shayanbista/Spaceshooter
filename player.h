@@ -5,7 +5,7 @@
 #include "sdl.h"
 #include "character.h"
 #include "constants.h"
-#include "utilies.h"
+#include "utils.h"
 
 #include <algorithm>
 #include <vector>
@@ -16,12 +16,12 @@ public:
     Player();
     ~Player();  
     int move(int x);
-    // void move(int x, int y, bool horizontal, bool vertical) override;
     int shoot() override;
     int renderPlayer();
     std::vector<Bullet> shooting{};
     void updateBullets();
-
+    SDL_Rect getRect() { return playerRect; }
+    SDL_Rect getBulletRect() { return bulletRect; }
 
 private:
     int posX=250;
@@ -33,6 +33,7 @@ private:
     SDL_Texture* playerTexture;  
     SDL_Surface* playerSurface;
     SDL_Rect playerRect;
+    SDL_Rect bulletRect;
 };
 
 #endif // PLAYER_H

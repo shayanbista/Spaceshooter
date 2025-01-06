@@ -12,9 +12,14 @@ class Enemy:public Character{
         ~Enemy();
 
         int renderEnemy();
-        int move(int speed);        
+
+        void slideEnemy(int speed);
+        
+        // int move(int speed);        
         int moveVertically(int speed);
         int moveHorizontally(int speed);
+
+        SDL_Rect getRect() { return enemyRect; };
 
     private:
         MovementType movementType;
@@ -28,9 +33,7 @@ class Enemy:public Character{
         SDL_Texture* enemyTexture;  
         SDL_Surface* enemySurface;
         SDL_Rect enemyRect;
+        // std::mutex enemyMutex;
 
 };
-
-
-
 

@@ -13,8 +13,7 @@ Enemy::Enemy(MovementType type ,int x,int y){
     if(movementType==MovementType::HORIZONTAL){
         degree =180;
     }
-
-    
+   
     // Initialize SDL_image
     int imgFlags = IMG_INIT_PNG;
     if(!(IMG_Init(imgFlags) & imgFlags)) {
@@ -48,11 +47,9 @@ int Enemy::renderEnemy() {
         }
     }
 
-    // Update position
     enemyRect.x = posX;
     enemyRect.y = posY;
 
-    // Render the enemy
        SDL_RenderCopyEx(
         renderer,
         enemyTexture,
@@ -83,13 +80,14 @@ int Enemy::moveHorizontally(int speed) {
 }
 
 int Enemy::moveVertically(int speed){
+   
     posY +=speed * direction;
 
     if(posY <=0){
         posY=0;
         direction = 1;
     }
-    
+
     else if(posY >=(Constants::screenHeight)/2){
         posY=(Constants::screenHeight)/2;
         direction = -1;
@@ -98,16 +96,35 @@ int Enemy::moveVertically(int speed){
     return 0;
 };
 
+void Enemy::slideEnemy(int speed){
 
-int Enemy::move(int speed){
     if(movementType == MovementType::HORIZONTAL){
-        return moveHorizontally(speed);
+        std::cout <<"speed before applying horizontally" << speed << std::endl;
+        posX += speed * direction;
+        if(posX>=Constants::screenWidth-enemyWidth){
+        posX = Constants::screenWidth - enemyWidth;
+        direction = -1;  
+        }
+        else if(posX<=0){
+        posX = 0;
+        direction = 1;  
+        }
     }else if(movementType == MovementType::VERTICAL){
-        return moveVertically(speed);
-    }
-    return 0;
-}
+        std::cout <<"speed before applying " << speed << std::endl;
+        posY += speed * direction;
+        if(posY <=0){
+            posY=0;
+            direction = 1;
+        }
 
+    else if(posY >=(Constants::screenHeight)/2){
+        posY=(Constants::screenHeight)/2;
+        direction = -1;
+
+    }    
+    }
+    
+}
 
 Enemy::~Enemy(){
     if(enemyTexture){

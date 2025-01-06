@@ -11,6 +11,10 @@ class Character{
     Character()=default;
 
     virtual int shoot() {
+
+
+
+
         return 0;
     }
 

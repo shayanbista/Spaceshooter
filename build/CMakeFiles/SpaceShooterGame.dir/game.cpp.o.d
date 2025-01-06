@@ -305,7 +305,7 @@ CMakeFiles/SpaceShooterGame.dir/game.cpp.o: \
  /home/leapfrog/Documents/spaceshootergame/constants.h \
  /home/leapfrog/Documents/spaceshootergame/player.h \
  /home/leapfrog/Documents/spaceshootergame/character.h \
- /home/leapfrog/Documents/spaceshootergame/utilies.h \
+ /home/leapfrog/Documents/spaceshootergame/utils.h \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \

@@ -16,7 +16,7 @@ include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
 
 
 # Add executable
-add_executable(${PROJECT_NAME} main.cpp map.cpp sdl.cpp player.cpp enemy.cpp)
+add_executable(${PROJECT_NAME} main.cpp map.cpp sdl.cpp player.cpp enemy.cpp game.cpp)
 
 # Link libraries
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})

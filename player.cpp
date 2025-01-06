@@ -37,7 +37,6 @@ int Player::renderPlayer() {
         }
     }
 
-    // SDL_RenderCopy(renderer, playerTexture, nullptr, &playerRect);
     SDL_RenderCopyEx(
         renderer,
         playerTexture,
@@ -68,10 +67,10 @@ int Player::move(int x) {
     }
 
     if (previousPosX > posX) {
-        degree -= 10; 
+        degree -= 15; 
         if(degree < -50)  degree = -50;
     } else if (previousPosX < posX) {
-        degree += 10; 
+        degree += 15; 
         if (degree > 50) degree =50;
     }
 
@@ -83,29 +82,52 @@ int Player::move(int x) {
 
  
 
-
-int Player::shoot(){
-    shooting.emplace_back(posX,posY+playerHeight,true);
-    std::cout<<"shooting length"<<shooting.size()<<"\n";
+int Player::shoot() {
+    float firingDegree = 90-degree;
+    shooting.emplace_back(posX, posY + playerHeight, true, firingDegree); 
     return 0;
 }
 
 
+void Player::updateBullets() {
+    SDL* sdlInstance = SDL::getInstance();
+    SDL_Renderer* renderer = sdlInstance->getRenderer();
 
-void Player::updateBullets(){
+    for (auto& bullet : shooting) {
+        if (bullet.fired) {
+            float radians = bullet.firingDegree * M_PI / 180.0f; 
+            bullet.x += 4 * cos(radians);
+            bullet.y -= 4 * sin(radians);
 
-    for (auto& bullet :shooting){
-        if(bullet.fired){
-            bullet.y-=4;
-            std::cout<<"bullet fired"<<bullet.y<<"\n";
+            bulletRect = { static_cast<int>(bullet.x), static_cast<int>(bullet.y), 5, 10 };
+
+            if (bullet.x <= 0 || bullet.x >= Constants::screenWidth) {
+                if (bullet.x <= 0) {
+                    bullet.firingDegree = 60 + rand() % 91; 
+                } else {
+                    
+                    bullet.firingDegree = 60+ rand() % 91; 
+                }
+                bullet.x = std::clamp(bullet.x, 0.0f, static_cast<float>(Constants::screenWidth - 1));
+    }
+            // Render the bullet
+            SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
+            SDL_RenderFillRect(renderer, &bulletRect);
         }
-        shooting.erase(std::remove_if(shooting.begin(),shooting.end(),[&](Bullet& Bullet){ 
-            return bullet.y < 0 || bullet.fired;
-        }),shooting.end());
     }
 
-    std::cout<<"shooting size"<<shooting.size()<<"\n";
-    }
+    // Remove bullets that go off-screen
+    shooting.erase(
+        std::remove_if(
+            shooting.begin(),
+            shooting.end(),
+            [](Bullet& bullet) {
+                return bullet.y < 0 || bullet.x < 0 || bullet.x > Constants::screenWidth;
+            }
+        ),
+        shooting.end()
+    );
+}
 
 
 Player::~Player(){
@@ -115,5 +137,4 @@ Player::~Player(){
     }
     IMG_Quit();
 }
-
 

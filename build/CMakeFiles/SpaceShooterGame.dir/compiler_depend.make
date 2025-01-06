@@ -745,7 +745,7 @@ CMakeFiles/SpaceShooterGame.dir/game.cpp.o: ../game.cpp \
   ../constants.h \
   ../player.h \
   ../character.h \
-  ../utilies.h \
+  ../utils.h \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
@@ -1144,7 +1144,7 @@ CMakeFiles/SpaceShooterGame.dir/main.cpp.o: ../main.cpp \
   ../constants.h \
   ../player.h \
   ../character.h \
-  ../utilies.h \
+  ../utils.h \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
@@ -1895,7 +1895,7 @@ CMakeFiles/SpaceShooterGame.dir/player.cpp.o: ../player.cpp \
   /usr/include/c++/11/bits/unique_lock.h \
   ../character.h \
   ../constants.h \
-  ../utilies.h \
+  ../utils.h \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
@@ -2721,8 +2721,6 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
-../utilies.h:
-
 /usr/include/c++/11/chrono:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
@@ -2882,6 +2880,8 @@ CMakeFiles/SpaceShooterGame.dir/sdl.cpp.o: ../sdl.cpp \
 /usr/include/c++/11/tr1/riemann_zeta.tcc:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/x86gprintrin.h:
+
+../utils.h:
 
 /usr/include/SDL2/SDL_platform.h:
 
