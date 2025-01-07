@@ -13,7 +13,6 @@ Enemy::Enemy(MovementType type ,int x,int y,int moveSpeed){
     if(movementType==MovementType::HORIZONTAL){
         degree =180;
     }
-   
     // Initialize SDL_image
     int imgFlags = IMG_INIT_PNG;
     if(!(IMG_Init(imgFlags) & imgFlags)) {
@@ -46,17 +45,6 @@ void Enemy::shoot() {
         lastShotTime = currentTime;
     }
 }
-
-
-
-// std::chrono::steady_clock::time_point Enemy::getLastShotTime() const {
-//     return lastShotTime;
-// }
-
-// void Enemy::setLastShotTime(std::chrono::steady_clock::time_point time) {
-//     lastShotTime = time;
-// }
-
 
 int Enemy::renderEnemy() {
     SDL* sdlInstance = SDL::getInstance();
@@ -120,8 +108,7 @@ void Enemy::slideEnemy(){
     else if(posY >=(Constants::screenHeight)/2){
         posY=(Constants::screenHeight)/2;
         direction = -1;
-
-    }    
+    }   
     }
     
 }

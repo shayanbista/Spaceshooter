@@ -18,7 +18,7 @@ public:
     int move(int x);
     void shoot() override;
     int renderPlayer();
-  
+    
     void renderBullets();
     SDL_Rect getRect() { return playerRect; }
     SDL_Rect getBulletRect() { return bulletRect; }

@@ -38,7 +38,6 @@ private:
     std::vector<std::thread> enemyThreads;
     std::list<Enemy> enemies;
     std::vector<int> bulletsToRemove;
-    std::mutex enemyMutex;
 };
 
 #endif // GAME_H

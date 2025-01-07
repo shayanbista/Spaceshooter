@@ -23,10 +23,6 @@ class Enemy:public Character{
 
         void shoot() override;
         SDL_Rect getRect() { return enemyRect; };
-        // std::chrono::steady_clock::time_point getLastShotTime() const;
-        // void setLastShotTime(std::chrono::steady_clock::time_point time);
-  
-
     private:
         MovementType movementType;
         int posX=200;

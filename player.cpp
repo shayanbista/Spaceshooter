@@ -101,7 +101,6 @@ void Player::renderBullets() {
                 if (bullet.x <= 0) {
                     bullet.firingDegree = 60 + rand() % 91; 
                 } else {
-                    
                     bullet.firingDegree = 60+ rand() % 91; 
                 }
                 bullet.x = std::clamp(bullet.x, 0.0f, static_cast<float>(Constants::screenWidth - 1));
