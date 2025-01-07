@@ -11,6 +11,9 @@
 #include <string>
 #include <map>
 
+#include <fstream>
+#include <sstream>
+
 class Map {
 public:
     Map();
@@ -21,6 +24,8 @@ public:
     void setColoredTile(char c, SDL_Event& event); 
     void handleTileMapEvent(SDL_Event& event); 
     void renderColoredTile(char c, SDL_Event& event); 
+    void saveMap(const std::string& filename);
+    void loadMap(const std::string& filename);
 
 
 private:

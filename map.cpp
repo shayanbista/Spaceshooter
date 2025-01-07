@@ -24,10 +24,48 @@ void Map::setColoredTile(char c,SDL_Event& event){
         if(tileX>=0 && tileX<mapData[0].size() && tileY>=0 && tileY<mapData.size()){        
             mapData[tileY][tileX]=c;
         }
-
-
 }
 
+void Map::saveMap(const std::string& filename){
+
+    std::ofstream outFile(filename);
+
+    if(!outFile.is_open()){
+        std::cerr << "failed to open a file \n";
+        return;
+    }
+
+    for (auto row:mapData){
+        for (auto tile:row){
+            outFile << tile;
+        }
+        outFile << '\n';
+    }
+    outFile.close();
+    std::cout << "Map saved to " << filename << std::endl;
+}
+
+void Map::loadMap(const std::string& filename){
+    std::ifstream inFile(filename);
+
+    if(!inFile.is_open()){
+        std::cerr << "failed to open a file \n";
+    }
+    
+    // clearing the current map
+    mapData.clear(); 
+    std::string Line;
+    while(std::getline(inFile, Line)){
+        std::vector<char> row;
+        for (char c : Line) {
+            row.emplace_back(c);
+        }
+        mapData.emplace_back(row);
+    }
+    inFile.close();
+    std::cout << "Map loaded from " << filename << std::endl;        
+
+}
 
 
 void Map::handleTileMapEvent( SDL_Event& event) {

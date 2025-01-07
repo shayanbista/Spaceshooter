@@ -62,6 +62,11 @@ void Game::handleEvents() {
                 case SDLK_l:
                     player.shoot();    // Shooting
                     break;
+                case SDLK_s:
+                    map.saveMap("output.txt"); // Save a map
+                    break;
+                case SDLK_o:
+                    map.loadMap("output.txt"); // Save a map
                 default:
                     break;
             }
