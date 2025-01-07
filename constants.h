@@ -1,11 +1,10 @@
-#ifndef Constants_H
-#define Constants_H
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
 
-namespace Constants{
-    constexpr int tileWidth = 32;
-    constexpr int tileHeight = 32;
-    constexpr int screenWidth = 500;
-    constexpr int screenHeight = 500;
-}
+#define TILE_WIDTH 32
+#define TILE_HEIGHT 32
+#define SCREEN_WIDTH 700
+#define SCREEN_HEIGHT 800
+
 
 #endif

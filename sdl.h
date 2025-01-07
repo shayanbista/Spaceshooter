@@ -12,8 +12,6 @@ private:
     static std::mutex mutex;
     SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
-
-
     SDL();
 
 public:

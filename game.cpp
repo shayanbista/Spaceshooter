@@ -11,7 +11,7 @@ Game::~Game() {
 
 bool Game::initialize() {
     sdlInstance = SDL::getInstance();
-    if (!sdlInstance->initialize("Space Shooter Game", Constants::screenWidth, Constants::screenHeight)) {
+    if (!sdlInstance->initialize("Space Shooter Game", SCREEN_WIDTH, SCREEN_HEIGHT)) {
         std::cout << "SDL Initialization failed!" << "\n";
         return false;
     }
@@ -40,14 +40,18 @@ void Game::cleanup() {
     sdlInstance->cleanup();
 }
 
+
 void Game::handleEvents() {
     SDL_Event e;
     while (SDL_PollEvent(&e) != 0) {
+        // First pass the event to map
+        map.handleTileMapEvent(e);
+        
+        // Then handle game-specific events
         if (e.type == SDL_QUIT) {
             quit = true;
         }
-
-        if (e.type == SDL_KEYDOWN) {
+        else if (e.type == SDL_KEYDOWN) {
             switch (e.key.keysym.sym) {
                 case SDLK_LEFT:
                     player.move(-10);  // Move left
@@ -90,16 +94,17 @@ void Game::render() {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); 
     SDL_RenderClear(renderer);
 
-    map.loadMap();
-    player.renderPlayer();
+    map.displayTiles();
+    // map.loadMap();
+    // player.renderPlayer();
 
-    for (auto& enemy : enemies) {
-        enemy.renderEnemy();
-        // renders the bullets shot by enemy
-        enemy.renderBullets(); 
-    }
-    // renders the bullet shot by player
-    player.renderBullets();
+    // for (auto& enemy : enemies) {
+    //     enemy.renderEnemy();
+    //     // renders the bullets shot by enemy
+    //     enemy.renderBullets(); 
+    // }
+    // // renders the bullet shot by player
+    // player.renderBullets();
 
     SDL_RenderPresent(renderer);
 }

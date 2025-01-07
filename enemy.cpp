@@ -31,7 +31,7 @@ void Enemy::renderBullets() {
         SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
         SDL_RenderFillRect(renderer, &bulletRect);
     }
-    bullets.erase(std::remove_if(bullets.begin(),bullets.end(),[](const Bullet& bullet){ return bullet.y >=Constants::screenHeight; }),bullets.end());
+    bullets.erase(std::remove_if(bullets.begin(),bullets.end(),[](const Bullet& bullet){ return bullet.y >=SCREEN_HEIGHT; }),bullets.end());
 }
 
 
@@ -89,8 +89,8 @@ void Enemy::slideEnemy(){
 
     if(movementType == MovementType::HORIZONTAL){
         posX += speed * direction;
-        if(posX>=Constants::screenWidth-enemyWidth){
-        posX = Constants::screenWidth - enemyWidth;
+        if(posX>=SCREEN_HEIGHT-enemyWidth){
+        posX = SCREEN_WIDTH - enemyWidth;
         direction = -1;  
         }
         else if(posX<=0){
@@ -105,8 +105,8 @@ void Enemy::slideEnemy(){
             direction = 1;
         }
 
-    else if(posY >=(Constants::screenHeight)/2){
-        posY=(Constants::screenHeight)/2;
+    else if(posY >=(SCREEN_HEIGHT)/2){
+        posY=(SCREEN_HEIGHT)/2;
         direction = -1;
     }   
     }

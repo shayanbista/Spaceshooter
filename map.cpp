@@ -1,7 +1,7 @@
 // map.cpp
 #include "map.h"
 
-Map::Map() {
+Map::Map() : mapData(SCREEN_HEIGHT / TILE_HEIGHT, std::vector<char>(SCREEN_WIDTH / TILE_WIDTH)) {
     // Initialize member variables
     tileSurface = nullptr;
     tileTexture = nullptr;
@@ -13,39 +13,64 @@ Map::Map() {
     }
 }
 
-int Map::loadMap() {
-    // Access the SDL singleton instance
+
+void Map::setColoredTile(char c,SDL_Event& event){
+        int x=event.button.x;
+        int y=event.button.y;
+        // Calculate tile position
+        int tileX = x / TILE_HEIGHT;
+        int tileY = y / TILE_WIDTH;
+
+        if(tileX>=0 && tileX<mapData[0].size() && tileY>=0 && tileY<mapData.size()){        
+            mapData[tileY][tileX]=c;
+        }
+
+
+}
+
+
+
+void Map::handleTileMapEvent( SDL_Event& event) {
+    if (event.type == SDL_MOUSEBUTTONDOWN) {
+        if (event.button.clicks == 1) {
+            setColoredTile('y', event);
+    
+        } else if (event.button.clicks == 2) {
+            setColoredTile('r', event);
+        } else if (event.button.clicks == 3) {
+            setColoredTile('b', event);
+        }
+    }
+}
+
+
+void Map::displayTiles() {
     SDL* sdlInstance = SDL::getInstance();
     SDL_Renderer* renderer = sdlInstance->getRenderer();
 
-    if (!tileTexture) {
-        //loading an image to render
-        const char* imagePath = "../resources/background3.png";  
-        tileSurface = IMG_Load(imagePath);
-        
-        if (!tileSurface) {
-            std::cout << "Failed to load image at path: " << imagePath << std::endl;
-            std::cout << "SDL_image Error: " << IMG_GetError() << std::endl;
-            return 1;
+    for (int i = 0; i < mapData.size(); i++) {
+    for (int j = 0; j < mapData[0].size(); j++) {
+        SDL_Rect rect = {j * TILE_WIDTH, i * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT};
+
+        switch (mapData[i][j]) {
+            case 'y': // Yellow
+                SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
+                break;
+            case 'r': // Red
+                SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+                break;
+            case 'b': // Blue
+                SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+                break;
+            default:  // Default background color (e.g., black)
+                SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+                break;
         }
 
-        tileTexture = SDL_CreateTextureFromSurface(renderer, tileSurface);
-        SDL_FreeSurface(tileSurface);
-        tileSurface = nullptr;  // Avoiding dangling pointer
-
-        if (!tileTexture) {
-            std::cout << "Failed to create texture! SDL Error: " << SDL_GetError() << std::endl;
-            return 1;
-        }
+        // Render the rectangle
+        SDL_RenderFillRect(renderer, &rect);
     }
-
-    // Create a destination rectangle for the entire screen
-    SDL_Rect destRect = {0, 0, Constants::screenWidth,Constants::screenHeight} ;
-    
-    // Render the background texture to fill the screen
-    SDL_RenderCopy(renderer, tileTexture, nullptr, &destRect);
-
-    return 0;
+}
 }
 
 Map::~Map() {

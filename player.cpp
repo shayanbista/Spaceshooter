@@ -58,8 +58,8 @@ int Player::move(int x) {
     if (posX < 0) {
         posX = 0;
         degree = 0;
-    } else if (posX + playerWidth > Constants::screenWidth) {
-        posX = Constants::screenWidth - playerWidth;
+    } else if (posX + playerWidth > SCREEN_WIDTH) {
+        posX = SCREEN_WIDTH - playerWidth;
         degree = 0;
     }
 
@@ -97,13 +97,13 @@ void Player::renderBullets() {
 
             bulletRect = { static_cast<int>(bullet.x), static_cast<int>(bullet.y), 5, 10 };
 
-            if (bullet.x <= 0 || bullet.x >= Constants::screenWidth) {
+            if (bullet.x <= 0 || bullet.x >= SCREEN_WIDTH) {
                 if (bullet.x <= 0) {
                     bullet.firingDegree = 60 + rand() % 91; 
                 } else {
                     bullet.firingDegree = 60+ rand() % 91; 
                 }
-                bullet.x = std::clamp(bullet.x, 0.0f, static_cast<float>(Constants::screenWidth - 1));
+                bullet.x = std::clamp(bullet.x, 0.0f, static_cast<float>(SCREEN_WIDTH - 1));
         }
             // Render the bullet
             SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
@@ -117,7 +117,7 @@ void Player::renderBullets() {
             shooting.begin(),
             shooting.end(),
             [](Bullet& bullet) {
-                return bullet.y < 0 || bullet.x < 0 || bullet.x > Constants::screenWidth;
+                return bullet.y < 0 || bullet.x < 0 || bullet.x > SCREEN_WIDTH;
             }
         ),
         shooting.end()
