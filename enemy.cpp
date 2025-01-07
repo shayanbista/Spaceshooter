@@ -9,9 +9,7 @@ Enemy::Enemy(MovementType type ,int x,int y,int moveSpeed){
     enemySurface = nullptr;
     enemyTexture = nullptr;
     speed=moveSpeed;
-
     degree = 90;
-
     if(movementType==MovementType::HORIZONTAL){
         degree =180;
     }
@@ -51,13 +49,13 @@ void Enemy::shoot() {
 
 
 
-std::chrono::steady_clock::time_point Enemy::getLastShotTime() const {
-    return lastShotTime;
-}
+// std::chrono::steady_clock::time_point Enemy::getLastShotTime() const {
+//     return lastShotTime;
+// }
 
-void Enemy::setLastShotTime(std::chrono::steady_clock::time_point time) {
-    lastShotTime = time;
-}
+// void Enemy::setLastShotTime(std::chrono::steady_clock::time_point time) {
+//     lastShotTime = time;
+// }
 
 
 int Enemy::renderEnemy() {
