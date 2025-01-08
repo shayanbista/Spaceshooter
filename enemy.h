@@ -15,7 +15,7 @@ enum class MovementType {
 
 class Enemy:public Character{
     public:
-        Enemy(MovementType type,int x,int y, int moveSpeed);
+        Enemy(SDL_Renderer* render,MovementType type,int x,int y, int moveSpeed);
         ~Enemy();
         int renderEnemy();
         void slideEnemy();
@@ -34,6 +34,7 @@ class Enemy:public Character{
         int speed =1;
         SDL_Texture* enemyTexture;  
         SDL_Surface* enemySurface;
+        SDL_Renderer* renderer;
         SDL_Rect enemyRect;
         std::vector<Bullet> bullets{};
         std::chrono::steady_clock::time_point lastShotTime;

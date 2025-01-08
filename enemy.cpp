@@ -2,7 +2,7 @@
 #include "constants.h"
 
 
-Enemy::Enemy(MovementType type ,int x,int y,int moveSpeed){
+Enemy::Enemy(SDL_Renderer* render,MovementType type,int x,int y, int moveSpeed):renderer(render){
     posX = x;
     posY =y;
     movementType = type;
@@ -30,6 +30,7 @@ void Enemy::renderBullets() {
         SDL_Rect bulletRect = {static_cast<int>(bullet.x), static_cast<int>(bullet.y), 10, 5};
         SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
         SDL_RenderFillRect(renderer, &bulletRect);
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     }
     bullets.erase(std::remove_if(bullets.begin(),bullets.end(),[](const Bullet& bullet){ return bullet.y >=SCREEN_HEIGHT; }),bullets.end());
 }
@@ -39,7 +40,7 @@ void Enemy::shoot() {
     auto currentTime = std::chrono::steady_clock::now();
     std::chrono::duration<double> elapsedTime = currentTime - lastShotTime;
 
-    if (elapsedTime.count() >= 2.0) {
+    if (elapsedTime.count() >= 5.0) {
         float firingDegree = 90-degree;
         bullets.emplace_back(posX, (posY - enemyHeight/3), true, firingDegree); 
         lastShotTime = currentTime;
@@ -72,7 +73,7 @@ int Enemy::renderEnemy() {
     enemyRect.x = posX;
     enemyRect.y = posY;
 
-       SDL_RenderCopyEx(
+    SDL_RenderCopyEx(
         renderer,
         enemyTexture,
         nullptr,

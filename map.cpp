@@ -1,11 +1,13 @@
 // map.cpp
 #include "map.h"
 
-Map::Map() : mapData(SCREEN_HEIGHT / TILE_HEIGHT, std::vector<char>(SCREEN_WIDTH / TILE_WIDTH)) {
+Map::Map(SDL_Renderer * render):render(render),mapData(SCREEN_HEIGHT / TILE_HEIGHT, std::vector<char>(SCREEN_WIDTH / TILE_WIDTH)) {
+
     // Initialize member variables
     tileSurface = nullptr;
     tileTexture = nullptr;
-    
+    renderer = render;
+
     // Initialize SDL_image
     int imgFlags = IMG_INIT_PNG;
     if(!(IMG_Init(imgFlags) & imgFlags)) {
@@ -42,7 +44,6 @@ void Map::saveMap(const std::string& filename){
         outFile << '\n';
     }
     outFile.close();
-    std::cout << "Map saved to " << filename << std::endl;
 }
 
 void Map::loadMap(const std::string& filename){
@@ -62,8 +63,7 @@ void Map::loadMap(const std::string& filename){
         }
         mapData.emplace_back(row);
     }
-    inFile.close();
-    std::cout << "Map loaded from " << filename << std::endl;        
+    inFile.close();       
 
 }
 
@@ -72,11 +72,14 @@ void Map::handleTileMapEvent( SDL_Event& event) {
     if (event.type == SDL_MOUSEBUTTONDOWN) {
         if (event.button.clicks == 1) {
             setColoredTile('y', event);
-    
         } else if (event.button.clicks == 2) {
             setColoredTile('r', event);
         } else if (event.button.clicks == 3) {
             setColoredTile('b', event);
+        }
+        else{
+            // setting d for black color
+            setColoredTile('d', event);
         }
     }
 }
@@ -100,8 +103,11 @@ void Map::displayTiles() {
             case 'b': // Blue
                 SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
                 break;
-            default:  // Default background color (e.g., black)
-                SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+            case 'd':
+                SDL_SetRenderDrawColor(renderer, 0,0, 0, 255);
+                break;
+            default:  // Default background color (black)
+                SDL_SetRenderDrawColor(renderer, 0,0, 0, 255);
                 break;
         }
 

@@ -16,14 +16,12 @@
 
 class Map {
 public:
-    Map();
+    Map(SDL_Renderer* render);
     ~Map();
 
     void displayTiles();
-
     void setColoredTile(char c, SDL_Event& event); 
     void handleTileMapEvent(SDL_Event& event); 
-    void renderColoredTile(char c, SDL_Event& event); 
     void saveMap(const std::string& filename);
     void loadMap(const std::string& filename);
 
@@ -34,9 +32,8 @@ private:
     SDL_Renderer* renderer;
     SDL_Surface* tileSurface;
     SDL_Texture* tileTexture;
+    SDL_Renderer* render;
     std::vector<std::vector<char>> mapData; 
-
-
 };
 
 #endif // MAP_H

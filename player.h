@@ -13,19 +13,18 @@
 
 class Player : public Character {
 public:
-    Player();
+    Player(SDL_Renderer* render) ;
     ~Player();  
-    int move(int x);
+    void move(int x , int y);
     void shoot() override;
     int renderPlayer();
-    
     void renderBullets();
     SDL_Rect getRect() { return playerRect; }
     SDL_Rect getBulletRect() { return bulletRect; }
 
 private:
-    int posX=250;
-    int posY=400;
+    int posX=350;
+    int posY=650;
     int playerHeight=32;
     int playerWidth=32;
     int degree=0;
@@ -35,6 +34,7 @@ private:
     SDL_Surface* playerSurface;
     SDL_Rect playerRect;
     SDL_Rect bulletRect;
+    SDL_Renderer* renderer;
 };
 
 #endif // PLAYER_H
